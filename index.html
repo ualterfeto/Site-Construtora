@@ -67,6 +67,69 @@
         .delay-300 {
             animation-delay: 0.3s;
         }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .project-gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .project-gallery img:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -226,7 +289,7 @@
                         <p class="text-gray-600 mb-4">Casa moderna de 450m² com piscina, área gourmet e jardim vertical.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Concluído: 2022</span>
-                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                            <button onclick="openModal('modal1')" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -239,7 +302,7 @@
                         <p class="text-gray-600 mb-4">Prédio comercial de 12 andares com estrutura moderna e sustentável.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Concluído: 2021</span>
-                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                            <button onclick="openModal('modal2')" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -252,7 +315,7 @@
                         <p class="text-gray-600 mb-4">Modernização completa de loja de 200m² em shopping center.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Concluído: 2023</span>
-                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                            <button onclick="openModal('modal3')" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -265,6 +328,186 @@
             </div>
         </div>
     </section>
+
+    <!-- Project Modals -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Residência Alphaville</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Residência Alphaville" class="w-full h-auto rounded-lg">
+                    <div class="project-gallery mt-4">
+                        <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646554?ixlib=rb-4.0.3" alt="Interior 1">
+                        <img src="https://images.unsplash.com/photo-1600607687937-ce582833fa73?ixlib=rb-4.0.3" alt="Interior 2">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3" alt="Jardim">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold mb-3">Detalhes do Projeto</h3>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Área construída: 450m²</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>4 suítes, sala de estar, sala de jantar, cozinha gourmet</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Piscina com borda infinita e área de lounge</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Jardim vertical com sistema de irrigação automático</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Sistema de automação residencial</span>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Desafios e Soluções</h3>
+                    <p class="text-gray-600 mb-4">O terreno apresentava um desnível considerável que foi aproveitado para criar uma arquitetura em diferentes níveis, integrando harmoniosamente a construção com a paisagem natural.</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Tecnologias Utilizadas</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Concreto armado</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Vidros especiais</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Madeira certificada</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Sistema fotovoltaico</span>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-blue-800 mb-2">Depoimento do Cliente</h4>
+                        <p class="text-gray-700 italic">"A ConstruMaster superou todas nossas expectativas. A atenção aos detalhes e o cuidado com cada etapa do projeto foram impressionantes. Hoje temos uma casa que é exatamente como sonhamos."</p>
+                        <p class="text-gray-600 mt-2">- Maria Silva, proprietária</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Edifício Corporate</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3" alt="Edifício Corporate" class="w-full h-auto rounded-lg">
+                    <div class="project-gallery mt-4">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3" alt="Hall de entrada">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3" alt="Escritórios">
+                        <img src="https://images.unsplash.com/photo-1524758631624-e2822cef2f78?ixlib=rb-4.0.3" alt="Área comum">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold mb-3">Detalhes do Projeto</h3>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>12 andares comerciais + 3 subsolos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Área total construída: 18.500m²</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Sistema de climatização centralizada</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Fachada ventilada com proteção solar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Certificação LEED Gold</span>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Inovações Sustentáveis</h3>
+                    <p class="text-gray-600 mb-4">O edifício incorporou diversas tecnologias verdes, incluindo captação de água da chuva, painéis fotovoltaicos e sistema de iluminação inteligente, resultando em uma redução de 40% no consumo energético comparado a edifícios convencionais.</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Materiais Principais</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Aço estrutural</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Vidro temperado</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Drywall</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Pisos elevados</span>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-blue-800 mb-2">Depoimento do Cliente</h4>
+                        <p class="text-gray-700 italic">"O Edifício Corporate se tornou um marco na região. A ConstruMaster entregou um projeto que alia funcionalidade, design e sustentabilidade, superando nossos requisitos mais exigentes."</p>
+                        <p class="text-gray-600 mt-2">- Carlos Mendes, diretor da Corporate Holdings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Reforma Loja Shopping</h2>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600566752227-17c8c6c0b51a?ixlib=rb-4.0.3" alt="Reforma Loja Shopping" class="w-full h-auto rounded-lg">
+                    <div class="project-gallery mt-4">
+                        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3" alt="Vitrine">
+                        <img src="https://images.unsplash.com/photo-1555529669-cd2f0b7f1b7d?ixlib=rb-4.0.3" alt="Interior 1">
+                        <img src="https://images.unsplash.com/photo-1555529669-226e6c1a6f5a?ixlib=rb-4.0.3" alt="Interior 2">
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-semibold mb-3">Detalhes do Projeto</h3>
+                    <ul class="mb-6 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Área reformada: 200m²</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Prazo de execução: 28 dias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Troca completa do piso e iluminação</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Nova fachada com elementos em aço corten</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                            <span>Balcões de atendimento em mármore</span>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Desafios Especiais</h3>
+                    <p class="text-gray-600 mb-4">A reforma precisou ser realizada sem interromper as atividades comerciais do shopping, exigindo um planejamento minucioso de etapas e trabalho noturno. A equipe da ConstruMaster desenvolveu um cronograma detalhado que permitiu concluir o projeto dentro do prazo e orçamento.</p>
+                    
+                    <h3 class="text-xl font-semibold mb-3">Materiais Destaque</h3>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Porcelanato líquido</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Aço corten</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Mármore branco</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">LED RGB</span>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-blue-800 mb-2">Resultados</h4>
+                        <p class="text-gray-700">Após a reforma, a loja registrou um aumento de 35% no fluxo de clientes e 28% nas vendas, comprovando o impacto positivo do novo design no negócio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="py-16 bg-white">
@@ -655,5 +898,25 @@
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+        
+        // Project Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=ua1ter/construtora" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
