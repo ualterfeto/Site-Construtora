@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConstruMaster | Engenharia Civil e Arquitetura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and effects */
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-building text-blue-500 text-3xl mr-2"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Constru<span class="text-blue-500">Master</span></h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Início</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Serviços</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Projetos</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Sobre</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Contato</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Início</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Serviços</a>
+                <a href="#projects" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Projetos</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Sobre</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-blue-500 font-medium">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image flex items-center pt-16">
+        <div class="container mx-auto px-4 text-white">
+            <div class="max-w-2xl animate-fade-in">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Construindo o futuro com excelência</h1>
+                <p class="text-xl mb-8">Soluções integradas em engenharia civil e arquitetura para projetos residenciais, comerciais e industriais.</p>
+                <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-block">
+                    Solicite um Orçamento
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-blue-600 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-fade-in delay-100">
+                    <div class="text-4xl font-bold mb-2">150+</div>
+                    <div class="text-lg">Projetos Concluídos</div>
+                </div>
+                <div class="animate-fade-in delay-200">
+                    <div class="text-4xl font-bold mb-2">25</div>
+                    <div class="text-lg">Anos de Experiência</div>
+                </div>
+                <div class="animate-fade-in delay-300">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-lg">Clientes Satisfeitos</div>
+                </div>
+                <div class="animate-fade-in delay-100">
+                    <div class="text-4xl font-bold mb-2">10</div>
+                    <div class="text-lg">Prêmios Recebidos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nossos Serviços</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-drafting-compass text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Projetos Arquitetônicos</h3>
+                    <p class="text-gray-600">Criação de projetos residenciais e comerciais com design inovador, funcionalidade e conforto, atendendo às necessidades específicas de cada cliente.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-hard-hat text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Construção Civil</h3>
+                    <p class="text-gray-600">Execução de obras com qualidade, segurança e dentro dos prazos estabelecidos, utilizando materiais de primeira linha e mão de obra especializada.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-tools text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Reformas e Adequações</h3>
+                    <p class="text-gray-600">Transformação de espaços existentes com soluções criativas que valorizam o imóvel, melhoram a funcionalidade e atendem às novas necessidades.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-home text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Regularização de Imóveis</h3>
+                    <p class="text-gray-600">Regularização de documentação junto aos órgãos competentes, incluindo ART, habite-se, alvarás e projetos aprovados.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-chart-line text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Consultoria Técnica</h3>
+                    <p class="text-gray-600">Assessoria especializada para análise de projetos, avaliação de patologias em construções e soluções técnicas personalizadas.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md p-6 transition duration-300">
+                    <div class="text-blue-500 mb-4">
+                        <i class="fas fa-solar-panel text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sustentabilidade</h3>
+                    <p class="text-gray-600">Projetos sustentáveis com eficiência energética, reaproveitamento de água, uso de materiais ecológicos e soluções verdes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nossos Projetos</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Conheça alguns dos nossos trabalhos mais recentes e inspire-se para o seu próximo projeto.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Residência Alphaville" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Residência Alphaville</h3>
+                        <p class="text-gray-600 mb-4">Casa moderna de 450m² com piscina, área gourmet e jardim vertical.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Concluído: 2022</span>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3" alt="Edifício Corporate" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Edifício Corporate</h3>
+                        <p class="text-gray-600 mb-4">Prédio comercial de 12 andares com estrutura moderna e sustentável.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Concluído: 2021</span>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1600566752227-17c8c6c0b51a?ixlib=rb-4.0.3" alt="Reforma Loja Shopping" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Reforma Loja Shopping</h3>
+                        <p class="text-gray-600 mb-4">Modernização completa de loja de 200m² em shopping center.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Concluído: 2023</span>
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Ver detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Ver Todos os Projetos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-12">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3" alt="Equipe ConstruMaster" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Sobre a ConstruMaster</h2>
+                    <p class="text-gray-600 mb-4">Fundada em 1998, a ConstruMaster se consolidou como referência em construção civil, engenharia e arquitetura, oferecendo soluções completas e personalizadas para cada projeto.</p>
+                    <p class="text-gray-600 mb-6">Nossa equipe multidisciplinar é composta por profissionais altamente qualificados e comprometidos com a excelência, inovação e satisfação dos clientes.</p>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nossa Missão</h3>
+                        <p class="text-gray-600">Construir sonhos com qualidade, segurança e responsabilidade, transformando ideias em espaços funcionais e inspiradores.</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nossos Valores</h3>
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Ética profissional
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Qualidade superior
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Inovação constante
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Sustentabilidade
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Segurança no trabalho
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="fas fa-check-circle text-blue-500 mr-2"></i> Satisfação do cliente
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Depoimentos</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">O que nossos clientes dizem sobre nossos serviços.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"A ConstruMaster transformou completamente minha casa. O projeto foi além das minhas expectativas e a equipe foi extremamente profissional em todas as etapas."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Maria Silva</h4>
+                            <p class="text-sm text-gray-500">Proprietária Residencial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Contratamos a ConstruMaster para nosso novo escritório e ficamos impressionados com a atenção aos detalhes e cumprimento dos prazos. Recomendo sem dúvidas!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Carlos Mendes" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Carlos Mendes</h4>
+                            <p class="text-sm text-gray-500">Diretor Comercial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"A equipe de arquitetura criou um projeto perfeito para nosso apartamento, maximizando o espaço de forma inteligente e bonita. O processo foi transparente e bem organizado."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Oliveira" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Ana Oliveira</h4>
+                            <p class="text-sm text-gray-500">Cliente Residencial</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Entre em Contato</h2>
+                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
+                <p class="max-w-2xl mx-auto mt-4 text-gray-300">Estamos prontos para transformar seu projeto em realidade. Preencha o formulário ou utilize nossos outros canais de contato.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Nome Completo</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">E-mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="phone" class="block mb-2 font-medium">Telefone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Assunto</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none">
+                                <option value="">Selecione um assunto</option>
+                                <option value="orcamento">Solicitar Orçamento</option>
+                                <option value="projeto">Consultoria de Projeto</option>
+                                <option value="duvida">Tirar Dúvidas</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-700 p-8 rounded-lg h-full">
+                        <h3 class="text-xl font-bold mb-6">Informações de Contato</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-blue-400 mt-1 mr-4">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Endereço</h4>
+                                    <p class="text-gray-300">Av. Engenheiro Eusébio Stevaux, 823<br>Santo Amaro, São Paulo - SP</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-blue-400 mt-1 mr-4">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Telefone</h4>
+                                    <p class="text-gray-300">(11) 1234-5678<br>(11) 98765-4321</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-blue-400 mt-1 mr-4">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">E-mail</h4>
+                                    <p class="text-gray-300">contato@construMaster.com.br<br>comercial@construMaster.com.br</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-blue-400 mt-1 mr-4">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Horário de Funcionamento</h4>
+                                    <p class="text-gray-300">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Siga-nos nas Redes Sociais</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-600 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-600 hover:bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-600 hover:bg-blue-400 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-gray-600 hover:bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.236247381318!2d-46.69982292468701!3d-23.59260137878593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5746f3a7f4a5%3A0x7d6a5e1bcd3a0b5e!2sAv.%20Engenheiro%20Eus%C3%A9bio%20Stevaux%2C%20823%20-%20Santo%20Amaro%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2004671-001!5e0!3m2!1spt-BR!2sbr!4v1689871234567!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-blue-500 text-2xl mr-2"></i>
+                        <h3 class="text-xl font-bold text-white">Constru<span class="text-blue-500">Master</span></h3>
+                    </div>
+                    <p class="mb-4">Excelência em construção civil, engenharia e arquitetura desde 1998.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-pink-400">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-400">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-blue-400 transition duration-300">Início</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition duration-300">Serviços</a></li>
+                        <li><a href="#projects" class="hover:text-blue-400 transition duration-300">Projetos</a></li>
+                        <li><a href="#about" class="hover:text-blue-400 transition duration-300">Sobre</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Serviços</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Projetos Arquitetônicos</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Construção Civil</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Reformas</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Regularização</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition duration-300">Consultoria</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Newsletter</h4>
+                    <p class="mb-4">Assine nossa newsletter para receber novidades e dicas sobre construção.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 rounded-l-lg bg-gray-800 text-white focus:outline-none w-full">
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p>&copy; 2023 ConstruMaster. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-500 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511987654321" class="fixed bottom-8 left-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+            
+            // Reset the form
+            contactForm.reset();
+        });
+        
+        // Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=ua1ter/construtora" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
